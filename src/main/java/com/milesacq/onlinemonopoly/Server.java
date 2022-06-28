@@ -6,9 +6,11 @@ import java.net.Socket;
 
 public class Server {
     private ServerSocket serverSocket;
+    private SingletonBoard board;
 
     public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
+        this.board = new SingletonBoard();
     }
 
     public void startServer() {

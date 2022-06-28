@@ -1,16 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.milesacq.onlinemonopoly.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="977.0" prefWidth="1692.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.milesacq.onlinemonopoly.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="619.0" layoutX="1475.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="198.0" />
+      <TextField layoutX="19.0" layoutY="18.0" prefHeight="851.0" prefWidth="230.0" />
+      <VBox fx:id="boardBox" layoutX="371.0" layoutY="7.0" prefHeight="955.0" prefWidth="943.0">
+         <children>
+            <HBox prefHeight="159.0" prefWidth="896.0">
+               <children>
+                  <Rectangle fx:id="twenty" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Rectangle fx:id="twentyOne" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyTwo" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyThree" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyFour" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyFive" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentySix" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentySeven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyEight" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="twentyNine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="thirty" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="622.0" prefWidth="943.0">
+               <children>
+                  <VBox prefHeight="564.0" prefWidth="148.0">
+                     <children>
+                        <Rectangle fx:id="nineteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="eighteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="fifteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="fourteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="twelve" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="eleven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="593.0" prefWidth="641.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MONOPOLY" wrappingWidth="362.38458251953125">
+                           <VBox.margin>
+                              <Insets left="170.0" top="200.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="55.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="564.0" prefWidth="148.0">
+                     <children>
+                        <Rectangle fx:id="thirtyOne" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyTwo" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyThree" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyFour" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyFive" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtySix" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtySeven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyEight" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="thirtyNine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="160.0" prefWidth="896.0">
+               <children>
+                  <Rectangle fx:id="ten" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Rectangle fx:id="nine" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="eight" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="seven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="six" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="five" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="four" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="three" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="two" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="one" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+                  <Rectangle fx:id="zero" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="159.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Circle fx:id="pOne" fill="DODGERBLUE" layoutX="1475.0" layoutY="839.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="rollButton" layoutX="1490.0" layoutY="746.0" mnemonicParsing="false" text="ROLL" />
+   </children>
+</AnchorPane>

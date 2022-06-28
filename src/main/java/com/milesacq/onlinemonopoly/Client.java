@@ -9,6 +9,7 @@ public class Client {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String username;
+    private int position;
 
     public Client(Socket socket, String username) {
         try {
@@ -69,6 +70,18 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setPostion(int position) {
+        this.position = position;
+    }
+
+    private void movePiece(int num) {
+        this.position += num;
+    }
+
+    public void roll() {
+        movePiece((int)(Math.random()*(11)+2));
     }
 
     public static void main(String[] args) throws IOException {
