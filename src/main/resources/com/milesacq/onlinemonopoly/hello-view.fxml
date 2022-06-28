@@ -38,8 +38,8 @@
                      <children>
                         <Rectangle fx:id="nineteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
                         <Rectangle fx:id="eighteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="seventeen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
+                        <Rectangle fx:id="sixteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
                         <Rectangle fx:id="fifteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
                         <Rectangle fx:id="fourteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
                         <Rectangle fx:id="thirteen" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="69.0" stroke="BLACK" strokeType="INSIDE" width="159.0" />
