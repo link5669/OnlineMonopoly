@@ -1,10 +1,11 @@
 package com.milesacq.onlinemonopoly;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class SingletonBoard {
 
-    private static ArrayList<Client> players = new ArrayList<>();
+    private static ArrayList<Player> players = new ArrayList<>();
     private static Property[] brownProperties = new Property[2];
     private static Property[] lightBlueProperties = new Property[3];
     private static Property[] pinkProperties = new Property[3];
@@ -16,7 +17,15 @@ public class SingletonBoard {
     private static Property[] railroads = new Property[4];
     private static Property[] utilities = new Property[2];
     private static Client currPlayer;
-    public SingletonBoard() {
+    public static boolean addClient(String username) {
+        if (players.size() < 5) {
+            Player player = new Player(username);
+            players.add(player);
+            return true;
+        }
+        return false;
+    }
+    public SingletonBoard() throws IOException {
 //        for (int i = 0; i < players.size(); i++) {
 //            players.get(i).setPostion(0);
 //        }
@@ -50,7 +59,8 @@ public class SingletonBoard {
         utilities[1] = new Property(Type.UTILITY, "Water Works", 150, 28);
     }
 
-    public static Client getCurrPlayer() {
-        return currPlayer;
+    public static Player getCurrPlayer() {
+        return players.get(0);
+//        return currPlayer;
     }
 }

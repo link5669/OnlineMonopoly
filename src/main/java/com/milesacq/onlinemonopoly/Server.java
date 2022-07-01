@@ -5,21 +5,23 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private ServerSocket serverSocket;
-    private SingletonBoard board;
+    private static ServerSocket serverSocket;
+    private static SingletonBoard board;
 
-    public Server(ServerSocket serverSocket) {
-        this.serverSocket = serverSocket;
-        this.board = new SingletonBoard();
+    public Server(ServerSocket serverSocket) throws IOException {
+        Server.serverSocket = serverSocket;
+        Server.board = new SingletonBoard();
     }
 
-    public void startServer() {
+    public static void startServer() {
         try {
             while(!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
                 System.out.println("A new client has connected");
                 ClientHandler clientHandler = new ClientHandler(socket);
-
+                if (HelloApplication.getClientHandler() == null) {
+                    HelloApplication.setClientHandler(clientHandler);
+                }
                 Thread thread = new Thread(clientHandler);
                 thread.start();
             }
@@ -28,7 +30,7 @@ public class Server {
         }
     }
 
-    public void closeServerSocket() {
+    public static void closeServerSocket() {
         try {
             if (serverSocket != null) {
                 serverSocket.close();
@@ -41,6 +43,6 @@ public class Server {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1234);
         Server server = new Server(serverSocket);
-        server.startServer();
+        startServer();
     }
 }

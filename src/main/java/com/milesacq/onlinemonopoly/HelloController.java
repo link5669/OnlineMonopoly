@@ -11,6 +11,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+import java.io.IOException;
+import java.security.interfaces.EdECKey;
+
 public class HelloController {
     @FXML
     private Rectangle one;
@@ -97,17 +100,40 @@ public class HelloController {
     private VBox boardBox;
     @FXML
     private Button rollButton;
+    @FXML
+    private Button create;
+
+    private Client client;
 
     public void initialize() {
         setPlayer();
+        onRollButtonPress();
+        onCreateButtonPress();
     }
 
-    @FXML
-    public void onRollButtonPress() {
+    private void onCreateButtonPress() {
+        create.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            client = Client.main("test");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }).start();
+            }
+        });
+    }
+
+    private void onRollButtonPress() {
         rollButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                SingletonBoard.getCurrPlayer().roll();
+                client.sendMessage("!roll!");
             }
         });
     }

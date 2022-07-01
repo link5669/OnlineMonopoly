@@ -12,7 +12,6 @@ public class ClientHandler implements Runnable {
     private BufferedWriter bufferedWriter;
     private String clientUsername;
 
-
     public ClientHandler(Socket socket) {
         try {
             this.socket = socket;
@@ -43,7 +42,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
-    private void broadcastMessage(String s) {
+    public void broadcastMessage(String s) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
                 if (!clientHandler.clientUsername.equals(clientUsername)) {
@@ -68,6 +67,18 @@ public class ClientHandler implements Runnable {
         while (socket.isConnected()) {
             try {
                 message = bufferedReader.readLine();
+                if (message == null) {
+                    continue;
+                }
+                String[] msgArr = message.split(" ");
+                if (msgArr[0].equals("!a!")) {
+                    SingletonBoard.addClient(msgArr[1]);
+                    continue;
+                } else if (msgArr[0].equals("!roll!")) {
+                    SingletonBoard.getCurrPlayer().roll();
+                } else if (msgArr[0].equals("!move!")) {
+                    System.out.println("moving");
+                }
                 broadcastMessage(message);
             } catch (IOException e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
