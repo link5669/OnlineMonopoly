@@ -22,6 +22,8 @@ public class SingletonBoard {
     private static Property[] odds = new Property[6];
     private static Property[] taxes = new Property[2];
     private static HashMap<Integer, Coordinate> propertyLocations = new HashMap<>();
+    private static HashMap<Integer, String> propertyNames = new HashMap<>();
+    private static HashMap<Integer, Integer> propertyValues = new HashMap<>();
     private static Client currPlayer;
     public static boolean addClient(String username) {
         if (players.size() < 5) {
@@ -80,7 +82,17 @@ public class SingletonBoard {
 
     private Property populate(Type type, String name, int price, int position, Coordinate coordinate) {
         propertyLocations.put(position, coordinate);
+        propertyNames.put(position, name);
+        propertyValues.put(position, price);
         return new Property(type, name, price, position, coordinate);
+    }
+
+    public String getPropertyName(int position) {
+        return propertyNames.get(position);
+    }
+
+    public int getPropertyValue(int position) {
+        return propertyValues.get(position);
     }
 
     public static Player getCurrPlayer() {

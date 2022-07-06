@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class HelloApplication extends Application {
     static ClientHandler clientHandler;
     public static ArrayList<Client> clients = new ArrayList<>();
-    public static HelloController controller;
+    public static HelloController helloController;
+    public static InfoViewController infoViewController;
     public static SingletonBoard board;
 
     @Override
@@ -37,11 +38,19 @@ public class HelloApplication extends Application {
     }
 
     public static HelloController getController() {
-        return controller;
+        return helloController;
+    }
+
+    public static InfoViewController getInfoViewController() {
+        return infoViewController;
+    }
+
+    public static void setInfoViewController(InfoViewController controller) {
+        HelloApplication.infoViewController = controller;
     }
 
     public static void setController(HelloController controller) {
-        HelloApplication.controller = controller;
+        HelloApplication.helloController = controller;
     }
 
     public static ClientHandler getClientHandler() {

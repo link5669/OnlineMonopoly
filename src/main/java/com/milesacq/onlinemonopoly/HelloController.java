@@ -1,20 +1,20 @@
 package com.milesacq.onlinemonopoly;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.security.interfaces.EdECKey;
 
 public class HelloController {
     @FXML
@@ -108,14 +108,23 @@ public class HelloController {
     private TextArea outputField;
 
     private Client client;
+    private SingletonBoard board;
 
 
     public void initialize() throws IOException {
-        SingletonBoard board = HelloApplication.getBoard();
+        board = HelloApplication.getBoard();
         setPlayer(board.getCoordinate(0).getX(), board.getCoordinate(0).getY());
         onRollButtonPress();
         onCreateButtonPress();
         HelloApplication.setController(this);
+        onRequestInfo();
+    }
+
+    private void onRequestInfo() {
+        one.setOnMouseClicked(mouseEvent -> {
+            newWindow("info-view.fxml", "Info");
+            HelloApplication.getInfoViewController().setInfo(board.getPropertyName(1), board.getPropertyValue(1));
+        });
     }
 
     private void onCreateButtonPress() {
@@ -153,5 +162,19 @@ public class HelloController {
     public void setPlayer(int x, int y) {
         pOne.setLayoutX(x);
         pOne.setLayoutY(y);
+    }
+
+    private void newWindow(String fxmlName, String windowTitle) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(HelloApplication.class.getResource(fxmlName));
+            Scene secondScene = new Scene(root, 230, 350);
+            Stage newWindow = new Stage();
+            newWindow.setTitle(windowTitle);
+            newWindow.setScene(secondScene);
+            newWindow.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
