@@ -5,6 +5,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -102,13 +104,18 @@ public class HelloController {
     private Button rollButton;
     @FXML
     private Button create;
+    @FXML
+    private TextArea outputField;
 
     private Client client;
 
-    public void initialize() {
-        setPlayer();
+
+    public void initialize() throws IOException {
+        SingletonBoard board = HelloApplication.getBoard();
+        setPlayer(board.getCoordinate(0).getX(), board.getCoordinate(0).getY());
         onRollButtonPress();
         onCreateButtonPress();
+        HelloApplication.setController(this);
     }
 
     private void onCreateButtonPress() {
@@ -137,9 +144,14 @@ public class HelloController {
             }
         });
     }
+    public void addText(String text) {
+        outputField.appendText("\n" + text);
+    }
 
-    public void setPlayer() {
-        pOne.setLayoutX(boardBox.getLayoutX() + boardBox.getPrefWidth() - 40);
-        pOne.setLayoutY(boardBox.getLayoutY() + boardBox.getPrefHeight() - 70);
+    //default X boardBox.getLayoutX() + boardBox.getPrefWidth() - 40
+    //default Y boardBox.getLayoutY() + boardBox.getPrefHeight() - 70
+    public void setPlayer(int x, int y) {
+        pOne.setLayoutX(x);
+        pOne.setLayoutY(y);
     }
 }

@@ -17,9 +17,10 @@ public class ClientHandler implements Runnable {
             this.socket = socket;
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.clientUsername = bufferedReader.readLine();
+            String[] msgArr = bufferedReader.readLine().split(" ");
+            this.clientUsername = msgArr[1];
             clientHandlers.add(this);
-            broadcastMessage("SERVER: " + clientUsername + " has entered the chat!");
+            broadcastMessage("SERVER: " + clientUsername + " has entered the game!");
         } catch (Exception e) {
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
@@ -45,11 +46,11 @@ public class ClientHandler implements Runnable {
     public void broadcastMessage(String s) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
-                if (!clientHandler.clientUsername.equals(clientUsername)) {
+//                if (!clientHandler.clientUsername.equals(clientUsername)) {
                     clientHandler.bufferedWriter.write(s);
                     clientHandler.bufferedWriter.newLine();
                     clientHandler.bufferedWriter.flush();
-                }
+//                }
             } catch (IOException e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
             }
@@ -58,7 +59,7 @@ public class ClientHandler implements Runnable {
 
     public void removeClientHandler() {
         clientHandlers.remove(this);
-        broadcastMessage("SERVER: " + clientUsername + " has left the chat");
+        broadcastMessage("SERVER: " + clientUsername + " has left the game");
     }
 
     @Override

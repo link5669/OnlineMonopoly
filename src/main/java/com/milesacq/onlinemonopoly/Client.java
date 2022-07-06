@@ -41,8 +41,16 @@ public class Client {
                 String msgFromGroup;
                 while (socket.isConnected()) {
                     try {
+                        HelloController controller = HelloApplication.getController();
                         msgFromGroup = bufferedReader.readLine();
-                        System.out.println(msgFromGroup);
+                        String[] msgArr = msgFromGroup.split(" ");
+                        if (msgArr[0].equals("!move!")) {
+                            if (msgArr[1].equals(username)) {
+                                controller.setPlayer(SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getX(), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getY());
+                            }
+                        }
+
+                        controller.addText(msgFromGroup);
                     } catch (IOException e) {
                         closeEverything(socket, bufferedReader, bufferedWriter);
                     }

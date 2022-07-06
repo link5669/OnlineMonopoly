@@ -1,8 +1,8 @@
 package com.milesacq.onlinemonopoly;
-
 public class Player {
     private int position;
     private String username;
+    private static final int MAX_INDEX = 39;
 
     public Player(String username) {
         this.username = username;
@@ -12,13 +12,15 @@ public class Player {
         this.position = position;
     }
 
-    private void movePiece(int num) {
-        this.position += num;
-        System.out.println(this.position);
-
+    private void incrementPosition(int num) {
+        if (this.position + num > MAX_INDEX) {
+            this.position = this.position + num - MAX_INDEX;
+        } else {
+            this.position += num;
+        }
         HelloApplication.getClientHandler().broadcastMessage("!move! " + username + " " + this.position);
     }
     public void roll() {
-        movePiece((int)(Math.random()*(11)+2));
+        incrementPosition((int)(Math.random()*(11)+2));
     }
 }
