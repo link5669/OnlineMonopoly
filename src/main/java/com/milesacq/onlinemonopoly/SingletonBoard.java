@@ -119,7 +119,7 @@ public class SingletonBoard {
     }
 
     private static void incrementTurn() {
-        if (currTurn + 1 < players.size()) {
+        if (currTurn + 1 <= players.size()) {
             currTurn++;
         } else {
             currTurn = 1;

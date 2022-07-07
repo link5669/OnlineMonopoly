@@ -142,10 +142,11 @@ public class HelloController {
     }
 
     private void onEndButtonPress() {
-        startGame.setOnAction(new EventHandler<ActionEvent>() {
+        endTurnButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 client.sendMessage("!end!");
+                endTurnButton.setDisable(true);
             }
         });
     }
@@ -257,5 +258,9 @@ public class HelloController {
 
     public void enableRoll(boolean bool) {
         rollButton.setDisable(!bool);
+    }
+
+    public void enableEnd(boolean bool) {
+        endTurnButton.setDisable(!bool);
     }
 }

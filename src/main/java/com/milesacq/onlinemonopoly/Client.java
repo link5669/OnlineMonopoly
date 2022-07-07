@@ -51,6 +51,7 @@ public class Client {
                         } else if (msgArr[0].equals("!turn!")) {
                             if (num == Integer.parseInt(msgArr[1])) {
                                 controller.enableRoll(true);
+                                controller.enableEnd(true);
                             }
                         } else if (msgArr[0].equals("!num!") && msgArr[1].equals(username)) {
                             num = Integer.parseInt(msgArr[2]);
