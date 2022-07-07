@@ -124,123 +124,45 @@ public class HelloController {
     }
 
     private void onRequestInfo() {
-        one.setOnMouseClicked(mouseEvent -> {
-            newWindow(1);
-        });
-        two.setOnMouseClicked(mouseEvent -> {
-            newWindow(2);
-        });
-        three.setOnMouseClicked(mouseEvent -> {
-            newWindow(3);
-        });
-        four.setOnMouseClicked(mouseEvent -> {
-            newWindow(4);
-        });
-        five.setOnMouseClicked(mouseEvent -> {
-            newWindow(5);
-        });
-        six.setOnMouseClicked(mouseEvent -> {
-            newWindow(6);
-        });
-        seven.setOnMouseClicked(mouseEvent -> {
-            newWindow(7);
-        });
-        eight.setOnMouseClicked(mouseEvent -> {
-            newWindow(8);
-        });
-        nine.setOnMouseClicked(mouseEvent -> {
-            newWindow(9);
-        });
-        ten.setOnMouseClicked(mouseEvent -> {
-            newWindow(10);
-        });
-        eleven.setOnMouseClicked(mouseEvent -> {
-            newWindow(11);
-        });
-        twelve.setOnMouseClicked(mouseEvent -> {
-            newWindow(12);
-        });
-        thirteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(13);
-        });
-        fourteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(14);
-        });
-        fifteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(15);
-        });
-        sixteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(16);
-        });
-        seventeen.setOnMouseClicked(mouseEvent -> {
-            newWindow(17);
-        });
-        eighteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(18);
-        });
-        nineteen.setOnMouseClicked(mouseEvent -> {
-            newWindow(19);
-        });
-        twenty.setOnMouseClicked(mouseEvent -> {
-            newWindow(20);
-        });
-        twentyOne.setOnMouseClicked(mouseEvent -> {
-            newWindow(21);
-        });
-        twentyTwo.setOnMouseClicked(mouseEvent -> {
-            newWindow(22);
-        });
-        twentyThree.setOnMouseClicked(mouseEvent -> {
-            newWindow(23);
-        });
-        twentyFour.setOnMouseClicked(mouseEvent -> {
-            newWindow(24);
-        });
-        twentyFive.setOnMouseClicked(mouseEvent -> {
-            newWindow(1);
-        });
-        twentySix.setOnMouseClicked(mouseEvent -> {
-            newWindow(26);
-        });
-        twentySeven.setOnMouseClicked(mouseEvent -> {
-            newWindow(27);
-        });
-        twentyEight.setOnMouseClicked(mouseEvent -> {
-            newWindow(28);
-        });
-        twentyNine.setOnMouseClicked(mouseEvent -> {
-            newWindow(29);
-        });
-        thirty.setOnMouseClicked(mouseEvent -> {
-            newWindow(30);
-        });
-        thirtyOne.setOnMouseClicked(mouseEvent -> {
-            newWindow(31);
-        });
-        thirtyTwo.setOnMouseClicked(mouseEvent -> {
-            newWindow(32);
-        });
-        thirtyThree.setOnMouseClicked(mouseEvent -> {
-            newWindow(33);
-        });
-        thirtyFour.setOnMouseClicked(mouseEvent -> {
-            newWindow(34);
-        });
-        thirtyFive.setOnMouseClicked(mouseEvent -> {
-            newWindow(35);
-        });
-        thirtySix.setOnMouseClicked(mouseEvent -> {
-            newWindow(36);
-        });
-        thirtySeven.setOnMouseClicked(mouseEvent -> {
-            newWindow(37);
-        });
-        thirtyEight.setOnMouseClicked(mouseEvent -> {
-            newWindow(38);
-        });
-        thirtyNine.setOnMouseClicked(mouseEvent -> {
-            newWindow(39);
-        });
+        one.setOnMouseClicked(mouseEvent -> newWindow(1));
+        two.setOnMouseClicked(mouseEvent -> newWindow(2));
+        three.setOnMouseClicked(mouseEvent -> newWindow(3));
+        four.setOnMouseClicked(mouseEvent -> newWindow(4));
+        five.setOnMouseClicked(mouseEvent -> newWindow(5));
+        six.setOnMouseClicked(mouseEvent -> newWindow(6));
+        seven.setOnMouseClicked(mouseEvent -> newWindow(7));
+        eight.setOnMouseClicked(mouseEvent -> newWindow(8));
+        nine.setOnMouseClicked(mouseEvent -> newWindow(9));
+        ten.setOnMouseClicked(mouseEvent -> newWindow(10));
+        eleven.setOnMouseClicked(mouseEvent -> newWindow(11));
+        twelve.setOnMouseClicked(mouseEvent -> newWindow(12));
+        thirteen.setOnMouseClicked(mouseEvent -> newWindow(13));
+        fourteen.setOnMouseClicked(mouseEvent -> newWindow(14));
+        fifteen.setOnMouseClicked(mouseEvent -> newWindow(15));
+        sixteen.setOnMouseClicked(mouseEvent -> newWindow(16));
+        seventeen.setOnMouseClicked(mouseEvent -> newWindow(17));
+        eighteen.setOnMouseClicked(mouseEvent -> newWindow(18));
+        nineteen.setOnMouseClicked(mouseEvent -> newWindow(19));
+        twenty.setOnMouseClicked(mouseEvent -> newWindow(20));
+        twentyOne.setOnMouseClicked(mouseEvent -> newWindow(21));
+        twentyTwo.setOnMouseClicked(mouseEvent -> newWindow(22));
+        twentyThree.setOnMouseClicked(mouseEvent -> newWindow(23));
+        twentyFour.setOnMouseClicked(mouseEvent -> newWindow(24));
+        twentyFive.setOnMouseClicked(mouseEvent -> newWindow(1));
+        twentySix.setOnMouseClicked(mouseEvent -> newWindow(26));
+        twentySeven.setOnMouseClicked(mouseEvent -> newWindow(27));
+        twentyEight.setOnMouseClicked(mouseEvent -> newWindow(28));
+        twentyNine.setOnMouseClicked(mouseEvent -> newWindow(29));
+        thirty.setOnMouseClicked(mouseEvent -> newWindow(30));
+        thirtyOne.setOnMouseClicked(mouseEvent -> newWindow(31));
+        thirtyTwo.setOnMouseClicked(mouseEvent -> newWindow(32));
+        thirtyThree.setOnMouseClicked(mouseEvent -> newWindow(33));
+        thirtyFour.setOnMouseClicked(mouseEvent -> newWindow(34));
+        thirtyFive.setOnMouseClicked(mouseEvent -> newWindow(35));
+        thirtySix.setOnMouseClicked(mouseEvent -> newWindow(36));
+        thirtySeven.setOnMouseClicked(mouseEvent -> newWindow(37));
+        thirtyEight.setOnMouseClicked(mouseEvent -> newWindow(38));
+        thirtyNine.setOnMouseClicked(mouseEvent -> newWindow(39));
     }
 
     private void onCreateButtonPress() {
