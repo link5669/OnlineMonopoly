@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class BoardViewController {
     @FXML
     private Rectangle one;
     @FXML
@@ -123,10 +123,10 @@ public class HelloController {
     private SingletonBoard board;
 
     public void initialize() throws IOException {
-        board = HelloApplication.getBoard();
+        board = MonopolyApplication.getBoard();
         onRollButtonPress();
         onCreateButtonPress();
-        HelloApplication.setController(this);
+        MonopolyApplication.setController(this);
         onRequestInfo();
         onStartButtonPress();
         onEndButtonPress();
@@ -151,7 +151,9 @@ public class HelloController {
         });
     }
     private void onRequestInfo() {
-        one.setOnMouseClicked(mouseEvent -> newWindow(1));
+        one.setOnMouseClicked(mouseEvent -> {
+            newWindow(1);
+        });
         two.setOnMouseClicked(mouseEvent -> newWindow(2));
         three.setOnMouseClicked(mouseEvent -> newWindow(3));
         four.setOnMouseClicked(mouseEvent -> newWindow(4));
@@ -244,16 +246,16 @@ public class HelloController {
     private void newWindow(int index) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(HelloApplication.class.getResource("info-view.fxml"));
+            root = FXMLLoader.load(MonopolyApplication.class.getResource("info-view.fxml"));
             Scene secondScene = new Scene(root, 230, 350);
             Stage newWindow = new Stage();
             newWindow.setTitle("Info");
-
+            newWindow.setScene(secondScene);
             newWindow.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        HelloApplication.getInfoViewController().setInfo(board.getPropertyName(index), board.getPropertyValue(index));
+        MonopolyApplication.getInfoViewController().setInfo(board.getPropertyName(index), board.getPropertyValue(index));
     }
 
     public void enableRoll(boolean bool) {

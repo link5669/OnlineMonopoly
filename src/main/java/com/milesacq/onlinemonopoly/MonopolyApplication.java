@@ -8,20 +8,19 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class HelloApplication extends Application {
+public class MonopolyApplication extends Application {
     static ClientHandler clientHandler;
     public static ArrayList<Client> clients = new ArrayList<>();
-    public static HelloController helloController;
+    public static BoardViewController boardViewController;
     public static InfoViewController infoViewController;
     public static SingletonBoard board;
 
     @Override
     public void start(Stage stage) throws IOException {
         board = new SingletonBoard();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MonopolyApplication.class.getResource("hello-view.fxml"));
         Rectangle2D r = Screen.getPrimary().getBounds();
         Scene scene = new Scene(fxmlLoader.load(), r.getWidth(), r.getHeight());
         stage.setTitle("Monopoly");
@@ -37,8 +36,8 @@ public class HelloApplication extends Application {
         return clients;
     }
 
-    public static HelloController getController() {
-        return helloController;
+    public static BoardViewController getController() {
+        return boardViewController;
     }
 
     public static InfoViewController getInfoViewController() {
@@ -46,11 +45,11 @@ public class HelloApplication extends Application {
     }
 
     public static void setInfoViewController(InfoViewController controller) {
-        HelloApplication.infoViewController = controller;
+        MonopolyApplication.infoViewController = controller;
     }
 
-    public static void setController(HelloController controller) {
-        HelloApplication.helloController = controller;
+    public static void setController(BoardViewController controller) {
+        MonopolyApplication.boardViewController = controller;
     }
 
     public static ClientHandler getClientHandler() {

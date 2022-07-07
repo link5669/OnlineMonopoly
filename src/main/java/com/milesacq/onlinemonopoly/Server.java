@@ -19,8 +19,8 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 System.out.println("A new client has connected");
                 ClientHandler clientHandler = new ClientHandler(socket);
-                if (HelloApplication.getClientHandler() == null) {
-                    HelloApplication.setClientHandler(clientHandler);
+                if (MonopolyApplication.getClientHandler() == null) {
+                    MonopolyApplication.setClientHandler(clientHandler);
                 }
                 Thread thread = new Thread(clientHandler);
                 thread.start();

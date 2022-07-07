@@ -10,7 +10,7 @@ public class InfoViewController {
     private Text cost;
 
     public void initialize() {
-        HelloApplication.setInfoViewController(this);
+        MonopolyApplication.setInfoViewController(this);
     }
     public void setInfo(String name, int cost) {
         this.title.setText(name);

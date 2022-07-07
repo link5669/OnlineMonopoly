@@ -128,6 +128,6 @@ public class SingletonBoard {
 
     public static void nextTurn() {
         incrementTurn();
-        HelloApplication.getClientHandler().broadcastMessage("!turn! " + currTurn);
+        MonopolyApplication.getClientHandler().broadcastMessage("!turn! " + currTurn);
     }
 }

@@ -9,7 +9,7 @@ public class Client {
     private static BufferedReader bufferedReader;
     private static BufferedWriter bufferedWriter;
     private String username;
-    private HelloController controller = HelloApplication.getController();
+    private BoardViewController controller = MonopolyApplication.getController();
     private int num;
 
     public Client(Socket socket, String username) {
@@ -42,7 +42,7 @@ public class Client {
                 String msgFromGroup;
                 while (socket.isConnected()) {
                     try {
-                        HelloController controller = HelloApplication.getController();
+                        BoardViewController controller = MonopolyApplication.getController();
                         msgFromGroup = bufferedReader.readLine();
                         String[] msgArr = msgFromGroup.split(" ");
                         if (msgArr[0].equals("!move!")) {
