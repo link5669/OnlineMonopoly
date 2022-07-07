@@ -101,6 +101,10 @@ public class HelloController {
     @FXML
     private Circle pTwo;
     @FXML
+    private Circle pThree;
+    @FXML
+    private Circle pFour;
+    @FXML
     private VBox boardBox;
     @FXML
     private Button rollButton;
@@ -110,19 +114,41 @@ public class HelloController {
     private TextArea outputField;
     @FXML
     private TextField username;
+    @FXML
+    private Button startGame;
+    @FXML
+    private Button endTurnButton;
 
     private Client client;
     private SingletonBoard board;
 
     public void initialize() throws IOException {
         board = HelloApplication.getBoard();
-//        setPlayer(board.getCoordinate(0).getX(), board.getCoordinate(0).getY());
         onRollButtonPress();
         onCreateButtonPress();
         HelloApplication.setController(this);
         onRequestInfo();
+        onStartButtonPress();
+        onEndButtonPress();
     }
 
+    private void onStartButtonPress() {
+        startGame.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                client.sendMessage("!increment!");
+            }
+        });
+    }
+
+    private void onEndButtonPress() {
+        startGame.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                client.sendMessage("!end!");
+            }
+        });
+    }
     private void onRequestInfo() {
         one.setOnMouseClicked(mouseEvent -> newWindow(1));
         two.setOnMouseClicked(mouseEvent -> newWindow(2));
@@ -205,6 +231,12 @@ public class HelloController {
         } else if (playerNum == 2){
             pTwo.setLayoutX(x);
             pTwo.setLayoutY(y);
+        } else if (playerNum == 3){
+            pThree.setLayoutX(x);
+            pThree.setLayoutY(y);
+        } else if (playerNum == 4){
+            pFour.setLayoutX(x);
+            pFour.setLayoutY(y);
         }
     }
 
@@ -215,11 +247,15 @@ public class HelloController {
             Scene secondScene = new Scene(root, 230, 350);
             Stage newWindow = new Stage();
             newWindow.setTitle("Info");
-            newWindow.setScene(secondScene);
+
             newWindow.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
         HelloApplication.getInfoViewController().setInfo(board.getPropertyName(index), board.getPropertyValue(index));
+    }
+
+    public void enableRoll(boolean bool) {
+        rollButton.setDisable(!bool);
     }
 }

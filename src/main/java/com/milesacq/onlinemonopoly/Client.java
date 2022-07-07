@@ -9,6 +9,8 @@ public class Client {
     private static BufferedReader bufferedReader;
     private static BufferedWriter bufferedWriter;
     private String username;
+    private HelloController controller = HelloApplication.getController();
+    private int num;
 
     public Client(Socket socket, String username) {
         try {
@@ -45,6 +47,13 @@ public class Client {
                         String[] msgArr = msgFromGroup.split(" ");
                         if (msgArr[0].equals("!move!")) {
                             controller.setPlayer(Integer.parseInt(msgArr[1]), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getX(), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getY());
+                            controller.enableRoll(false);
+                        } else if (msgArr[0].equals("!turn!")) {
+                            if (num == Integer.parseInt(msgArr[1])) {
+                                controller.enableRoll(true);
+                            }
+                        } else if (msgArr[0].equals("!num!") && msgArr[1].equals(username)) {
+                            num = Integer.parseInt(msgArr[2]);
                         }
                         controller.addText(msgFromGroup);
                     } catch (IOException e) {

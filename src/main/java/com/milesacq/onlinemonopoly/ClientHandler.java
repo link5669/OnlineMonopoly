@@ -73,10 +73,20 @@ public class ClientHandler implements Runnable {
                 }
                 String[] msgArr = message.split(" ");
                 if (msgArr[0].equals("!a!")) {
-                    SingletonBoard.addClient(msgArr[1]);
-                    continue;
+                    if (SingletonBoard.canAddClient()) {
+                        SingletonBoard.addClient(msgArr[1]);
+                        broadcastMessage("!num! " + clientUsername + " " + SingletonBoard.getNum(clientUsername));
+                        continue;
+                    } else {
+                        broadcastMessage("Game is full, new player cannot join");
+                        continue;
+                    }
                 } else if (msgArr[0].equals("!roll!")) {
                     SingletonBoard.getPlayer(msgArr[1]).roll();
+                } else if (msgArr[0].equals("!increment!")) {
+                    SingletonBoard.nextTurn();
+                } else if (msgArr[0].equals("!end!")) {
+                    SingletonBoard.nextTurn();
                 }
                 broadcastMessage(message);
             } catch (IOException e) {

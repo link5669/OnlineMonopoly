@@ -93,9 +93,13 @@
          </children>
       </VBox>
       <Circle fx:id="pOne" fill="DODGERBLUE" layoutX="1425.0" layoutY="901.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="rollButton" layoutX="1490.0" layoutY="746.0" mnemonicParsing="false" text="ROLL" />
+      <Button fx:id="rollButton" disable="true" layoutX="1490.0" layoutY="746.0" mnemonicParsing="false" text="ROLL" />
       <TextArea fx:id="outputField" layoutX="7.0" layoutY="7.0" prefHeight="940.0" prefWidth="338.0" />
-      <TextField fx:id="username" layoutX="1478.0" layoutY="798.0" />
+      <TextField fx:id="username" layoutX="1479.0" layoutY="813.0" />
       <Circle fx:id="pTwo" fill="#1fff61" layoutX="1457.0" layoutY="909.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="pThree" fill="#f3ff21" layoutX="1457.0" layoutY="878.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="pFour" fill="#ff3921" layoutX="1426.0" layoutY="871.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="startGame" layoutX="1490.0" layoutY="713.0" mnemonicParsing="false" text="START" />
+      <Button fx:id="endTurnButton" disable="true" layoutX="1494.0" layoutY="778.0" mnemonicParsing="false" text="END TURN" />
    </children>
 </AnchorPane>

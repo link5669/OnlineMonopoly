@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class SingletonBoard {
 
+    static ClientHandler handler;
     private static ArrayList<Player> players = new ArrayList<>();
     private static Property[] brownProperties = new Property[2];
     private static Property[] lightBlueProperties = new Property[3];
@@ -22,10 +23,17 @@ public class SingletonBoard {
     private static HashMap<Integer, Coordinate> propertyLocations = new HashMap<>();
     private static HashMap<Integer, String> propertyNames = new HashMap<>();
     private static HashMap<Integer, Integer> propertyValues = new HashMap<>();
+    private static int currTurn = 0;
     public static boolean addClient(String username) {
         if (players.size() < 5) {
             Player player = new Player(username);
             players.add(player);
+            return true;
+        }
+        return false;
+    }
+    public static boolean canAddClient() {
+        if (players.size() < 4) {
             return true;
         }
         return false;
@@ -110,8 +118,16 @@ public class SingletonBoard {
         return propertyValues.get(position);
     }
 
-    public static Player getCurrPlayer() {
-        return players.get(0);
-//        return currPlayer;
+    private static void incrementTurn() {
+        if (currTurn + 1 < players.size()) {
+            currTurn++;
+        } else {
+            currTurn = 1;
+        }
+    }
+
+    public static void nextTurn() {
+        incrementTurn();
+        HelloApplication.getClientHandler().broadcastMessage("!turn! " + currTurn);
     }
 }
