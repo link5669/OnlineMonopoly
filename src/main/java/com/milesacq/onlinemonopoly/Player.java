@@ -24,7 +24,8 @@ public class Player {
         }
         MonopolyApplication.getClientHandler().broadcastMessage("!move! " + SingletonBoard.getNum(username) + " " + this.position);
     }
-    public void roll() {
+    public int roll() {
         incrementPosition((int)(Math.random()*(11)+2));
+        return this.position;
     }
 }

@@ -1,21 +1,18 @@
 package com.milesacq.onlinemonopoly;
 
-import javafx.scene.layout.CornerRadii;
-
-public class Property {
-    private Type type;
-    private String name;
-    private int price;
-    private String owner;
-    private int position;
-    private Coordinate coords;
-
+public class Property extends BoardPiece {
+    private int owner;
     public Property(Type type, String name, int price, int position, Coordinate coords) {
-        this.type = type;
-        this.name = name;
-        this.price = price;
-        this.position = position;
-        this.coords = coords;
-        this.owner = "none";
+        super(type, name, price, position, coords);
+        owner = 5;
+    }
+
+    public boolean isOwned() {
+        return owner != 5;
+    }
+
+    public void setOwner(int owner) {
+        this.owner = owner;
+        System.out.println(this.name + " bought by " + owner);
     }
 }

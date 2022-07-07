@@ -3,6 +3,7 @@ package com.milesacq.onlinemonopoly;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ public class MonopolyApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         board = new SingletonBoard();
-        FXMLLoader fxmlLoader = new FXMLLoader(MonopolyApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MonopolyApplication.class.getResource("board-view.fxml"));
         Rectangle2D r = Screen.getPrimary().getBounds();
         Scene scene = new Scene(fxmlLoader.load(), r.getWidth(), r.getHeight());
         stage.setTitle("Monopoly");
@@ -61,5 +62,20 @@ public class MonopolyApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static void newWindow(int index, String username) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(MonopolyApplication.class.getResource("buy-view.fxml"));
+            Scene secondScene = new Scene(root, 300, 200);
+            Stage newWindow = new Stage();
+            newWindow.setTitle("Buy");
+            newWindow.setScene(secondScene);
+            newWindow.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BuyViewController.setIndex(index, username);
     }
 }

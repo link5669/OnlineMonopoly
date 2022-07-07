@@ -82,11 +82,18 @@ public class ClientHandler implements Runnable {
                         continue;
                     }
                 } else if (msgArr[0].equals("!roll!")) {
-                    SingletonBoard.getPlayer(msgArr[1]).roll();
+                    int currPosition = SingletonBoard.getPlayer(msgArr[1]).roll();
+                    if (SingletonBoard.getProperty(currPosition) instanceof Property) {
+                        if (!((Property) SingletonBoard.getProperty(currPosition)).isOwned()) {
+                            broadcastMessage("!canbuy! " + clientUsername + " " + currPosition);
+                        }
+                    }
                 } else if (msgArr[0].equals("!increment!")) {
                     SingletonBoard.nextTurn();
                 } else if (msgArr[0].equals("!end!")) {
                     SingletonBoard.nextTurn();
+                } else if (msgArr[0].equals("!willbuy!")) {
+                    ((Property)SingletonBoard.getProperty(Integer.parseInt(msgArr[1]))).setOwner(SingletonBoard.getNum(msgArr[2]));
                 }
                 broadcastMessage(message);
             } catch (IOException e) {
