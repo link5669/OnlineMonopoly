@@ -1,9 +1,7 @@
 package com.milesacq.onlinemonopoly;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class SingletonBoard {
 
@@ -24,7 +22,6 @@ public class SingletonBoard {
     private static HashMap<Integer, Coordinate> propertyLocations = new HashMap<>();
     private static HashMap<Integer, String> propertyNames = new HashMap<>();
     private static HashMap<Integer, Integer> propertyValues = new HashMap<>();
-    private static Client currPlayer;
     public static boolean addClient(String username) {
         if (players.size() < 5) {
             Player player = new Player(username);
@@ -32,6 +29,24 @@ public class SingletonBoard {
             return true;
         }
         return false;
+    }
+
+    public static Player getPlayer(String username) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getUsername().equals(username)) {
+                return players.get(i);
+            }
+        }
+        return null;
+    }
+
+    public static int getNum(String username) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getUsername().equals(username)) {
+                return i + 1;
+            }
+        }
+        return 0;
     }
 
     public static Coordinate getCoordinate(int position) {

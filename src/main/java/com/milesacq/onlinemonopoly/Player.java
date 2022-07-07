@@ -8,6 +8,10 @@ public class Player {
         this.username = username;
     }
 
+    public String getUsername() {
+        return this.username;
+    }
+
     public void setPostion(int position) {
         this.position = position;
     }
@@ -18,7 +22,7 @@ public class Player {
         } else {
             this.position += num;
         }
-        HelloApplication.getClientHandler().broadcastMessage("!move! " + username + " " + this.position);
+        HelloApplication.getClientHandler().broadcastMessage("!move! " + SingletonBoard.getNum(username) + " " + this.position);
     }
     public void roll() {
         incrementPosition((int)(Math.random()*(11)+2));

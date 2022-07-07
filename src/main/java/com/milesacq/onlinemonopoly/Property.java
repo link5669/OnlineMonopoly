@@ -6,7 +6,7 @@ public class Property {
     private Type type;
     private String name;
     private int price;
-    private Client owner;
+    private String owner;
     private int position;
     private Coordinate coords;
 
@@ -16,5 +16,6 @@ public class Property {
         this.price = price;
         this.position = position;
         this.coords = coords;
+        this.owner = "none";
     }
 }

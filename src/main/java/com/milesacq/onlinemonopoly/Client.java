@@ -10,7 +10,6 @@ public class Client {
     private static BufferedWriter bufferedWriter;
     private String username;
 
-
     public Client(Socket socket, String username) {
         try {
             this.socket = socket;
@@ -45,11 +44,8 @@ public class Client {
                         msgFromGroup = bufferedReader.readLine();
                         String[] msgArr = msgFromGroup.split(" ");
                         if (msgArr[0].equals("!move!")) {
-                            if (msgArr[1].equals(username)) {
-                                controller.setPlayer(SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getX(), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getY());
-                            }
+                            controller.setPlayer(Integer.parseInt(msgArr[1]), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getX(), SingletonBoard.getCoordinate(Integer.parseInt(msgArr[2])).getY());
                         }
-
                         controller.addText(msgFromGroup);
                     } catch (IOException e) {
                         closeEverything(socket, bufferedReader, bufferedWriter);

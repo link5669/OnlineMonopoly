@@ -76,9 +76,7 @@ public class ClientHandler implements Runnable {
                     SingletonBoard.addClient(msgArr[1]);
                     continue;
                 } else if (msgArr[0].equals("!roll!")) {
-                    SingletonBoard.getCurrPlayer().roll();
-                } else if (msgArr[0].equals("!move!")) {
-                    System.out.println("moving");
+                    SingletonBoard.getPlayer(msgArr[1]).roll();
                 }
                 broadcastMessage(message);
             } catch (IOException e) {
