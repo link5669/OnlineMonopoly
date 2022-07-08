@@ -66,6 +66,8 @@ public class Client {
                                 MonopolyApplication.newWindow(Integer.parseInt(msgArr[2]), username);
                             };
                             Platform.runLater(runnable);
+                        } else if (msgArr[0].equals("!bought!")) {
+                            controller.setColor(Integer.parseInt(msgArr[1]), Integer.parseInt(msgArr[2]));
                         }
                         controller.addText(msgFromGroup);
                     } catch (IOException e) {

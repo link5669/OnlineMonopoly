@@ -50,7 +50,7 @@ public class SingletonBoard {
     }
 
     public static int getNum(String username) {
-        for (int i = 0; i < players.size(); i++) {
+        for (int i = 0; i <= players.size(); i++) {
             if (players.get(i).getUsername().equals(username)) {
                 return i + 1;
             }

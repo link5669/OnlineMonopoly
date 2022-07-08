@@ -94,6 +94,7 @@ public class ClientHandler implements Runnable {
                     SingletonBoard.nextTurn();
                 } else if (msgArr[0].equals("!willbuy!")) {
                     ((Property)SingletonBoard.getProperty(Integer.parseInt(msgArr[1]))).setOwner(SingletonBoard.getNum(msgArr[2]));
+                    broadcastMessage("!bought! " + msgArr[1] + " " + SingletonBoard.getNum(clientUsername));
                 }
                 broadcastMessage(message);
             } catch (IOException e) {

@@ -10,11 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class BoardViewController {
     @FXML
@@ -121,6 +123,7 @@ public class BoardViewController {
 
     private Client client;
     private SingletonBoard board;
+    private HashMap<Integer, Rectangle> pieces;
 
     public void initialize() throws IOException {
         board = MonopolyApplication.getBoard();
@@ -130,6 +133,50 @@ public class BoardViewController {
         onRequestInfo();
         onStartButtonPress();
         onEndButtonPress();
+        populateHashMap();
+    }
+
+    private void populateHashMap() {
+        pieces = new HashMap<>();
+        pieces.put(1,one);
+        pieces.put(2,two);
+        pieces.put(3,three);
+        pieces.put(4,four);
+        pieces.put(5,five);
+        pieces.put(6,six);
+        pieces.put(7,seven);
+        pieces.put(8,eight);
+        pieces.put(9,nine);
+        pieces.put(10,ten);
+        pieces.put(11,eleven);
+        pieces.put(12,twelve);
+        pieces.put(13,thirteen);
+        pieces.put(14,fourteen);
+        pieces.put(15,fifteen);
+        pieces.put(16,sixteen);
+        pieces.put(17,seventeen);
+        pieces.put(18,eighteen);
+        pieces.put(19,nineteen);
+        pieces.put(20,twenty);
+        pieces.put(21,twentyOne);
+        pieces.put(22,twentyTwo);
+        pieces.put(23,twentyThree);
+        pieces.put(24,twentyFour);
+        pieces.put(25,twentyFive);
+        pieces.put(26,twentySix);
+        pieces.put(27,twentySeven);
+        pieces.put(28,twentyEight);
+        pieces.put(29,twentyNine);
+        pieces.put(30,thirty);
+        pieces.put(31,thirtyOne);
+        pieces.put(32,thirtyTwo);
+        pieces.put(33,thirtyThree);
+        pieces.put(34,thirtyFour);
+        pieces.put(35,thirtyFive);
+        pieces.put(36,thirtySix);
+        pieces.put(37,thirtySeven);
+        pieces.put(38,thirtyEight);
+        pieces.put(39,thirtyNine);
     }
 
     public Client getClient() {
@@ -215,6 +262,18 @@ public class BoardViewController {
                 }).start();
             }
         });
+    }
+
+    public void setColor(int index, int player) {
+        if (player == 1) {
+            pieces.get(index).setFill(Color.DODGERBLUE);
+        } else if (player == 2) {
+            pieces.get(index).setFill(Color.web("#1fff61"));
+        } else if (player == 3) {
+            pieces.get(index).setFill(Color.web("#f3ff21"));
+        } else if (player == 4) {
+            pieces.get(index).setFill(Color.web("#ff3921"));
+        }
     }
 
     private void onRollButtonPress() {
