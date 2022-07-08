@@ -132,6 +132,10 @@ public class BoardViewController {
         onEndButtonPress();
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     private void onStartButtonPress() {
         startGame.setOnAction(new EventHandler<ActionEvent>() {
             @Override

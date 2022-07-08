@@ -1,5 +1,11 @@
 package com.milesacq.onlinemonopoly;
 
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -55,6 +61,11 @@ public class Client {
                             }
                         } else if (msgArr[0].equals("!num!") && msgArr[1].equals(username)) {
                             num = Integer.parseInt(msgArr[2]);
+                        } else if (msgArr[0].equals("!canbuy!") && msgArr[1].equals(username)) {
+                            Runnable runnable = () -> {
+                                MonopolyApplication.newWindow(Integer.parseInt(msgArr[2]), username);
+                            };
+                            Platform.runLater(runnable);
                         }
                         controller.addText(msgFromGroup);
                     } catch (IOException e) {
@@ -64,6 +75,8 @@ public class Client {
             }
         }).start();
     }
+
+
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter)   {
         try {
