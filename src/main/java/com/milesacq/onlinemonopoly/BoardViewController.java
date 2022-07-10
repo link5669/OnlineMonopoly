@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -120,6 +121,22 @@ public class BoardViewController {
     private Button startGame;
     @FXML
     private Button endTurnButton;
+    @FXML
+    private Text p1Name;
+    @FXML
+    private Text p1Money;
+    @FXML
+    private Text p2Name;
+    @FXML
+    private Text p2Money;
+    @FXML
+    private Text p3Name;
+    @FXML
+    private Text p3Money;
+    @FXML
+    private Text p4Name;
+    @FXML
+    private Text p4Money;
 
     private Client client;
     private SingletonBoard board;
@@ -187,7 +204,9 @@ public class BoardViewController {
         startGame.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                client.sendMessage("!start!");
                 client.sendMessage("!increment!");
+
             }
         });
     }
@@ -327,5 +346,38 @@ public class BoardViewController {
 
     public void enableEnd(boolean bool) {
         endTurnButton.setDisable(!bool);
+    }
+
+    public void setName(String username, int num) {
+        if (num == 1) {
+            p1Name.setText(username);
+            p1Money.setText("1500");
+        } else if (num == 2) {
+            p2Name.setText(username);
+            p2Money.setText("1500");
+        } else if (num == 3) {
+            p3Name.setText(username);
+            p3Money.setText("1500");
+        } else if (num == 4) {
+            p4Name.setText(username);
+            p4Money.setText("1500");
+        }
+    }
+
+    public void subtractMoney(int num, int money) {
+        int curr;
+        if (num == 1) {
+            curr = Integer.parseInt(p1Money.getText());
+            p1Money.setText(String.valueOf(curr - money));
+        } else if (num == 2) {
+            curr = Integer.parseInt(p2Money.getText());
+            p2Money.setText(String.valueOf(curr - money));
+        } else if (num == 3) {
+            curr = Integer.parseInt(p3Money.getText());
+            p3Money.setText(String.valueOf(curr - money));
+        } else if (num == 4) {
+            curr = Integer.parseInt(p4Money.getText());
+            p4Money.setText(String.valueOf(curr - money));
+        }
     }
 }

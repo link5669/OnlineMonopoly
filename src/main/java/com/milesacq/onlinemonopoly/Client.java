@@ -68,6 +68,10 @@ public class Client {
                             Platform.runLater(runnable);
                         } else if (msgArr[0].equals("!bought!")) {
                             controller.setColor(Integer.parseInt(msgArr[1]), Integer.parseInt(msgArr[2]));
+                            controller.subtractMoney(Integer.parseInt(msgArr[4]), Integer.parseInt(msgArr[3]));
+//                            sendMessage("!moneysubtract! " + num + " " + msgArr[3]);
+                        } else if (msgArr[0].equals("!setname!")) {
+                            controller.setName(msgArr[1], Integer.parseInt(msgArr[2]));
                         }
                         controller.addText(msgFromGroup);
                     } catch (IOException e) {

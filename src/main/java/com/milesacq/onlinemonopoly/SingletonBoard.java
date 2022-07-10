@@ -33,6 +33,7 @@ public class SingletonBoard {
         }
         return false;
     }
+
     public static boolean canAddClient() {
         if (players.size() < 4) {
             return true;
@@ -45,6 +46,13 @@ public class SingletonBoard {
             if (players.get(i).getUsername().equals(username)) {
                 return players.get(i);
             }
+        }
+        return null;
+    }
+
+    public static Player getPlayer(int num) {
+        if (num <= players.size()) {
+            return players.get(num - 1);
         }
         return null;
     }

@@ -76,6 +76,7 @@ public class ClientHandler implements Runnable {
                     if (SingletonBoard.canAddClient()) {
                         SingletonBoard.addClient(msgArr[1]);
                         broadcastMessage("!num! " + clientUsername + " " + SingletonBoard.getNum(clientUsername));
+//                        broadcastMessage("!setname! " + clientUsername + " " + SingletonBoard.getNum(clientUsername));
                         continue;
                     } else {
                         broadcastMessage("Game is full, new player cannot join");
@@ -85,7 +86,9 @@ public class ClientHandler implements Runnable {
                     int currPosition = SingletonBoard.getPlayer(msgArr[1]).roll();
                     if (SingletonBoard.getProperty(currPosition) instanceof Property) {
                         if (!((Property) SingletonBoard.getProperty(currPosition)).isOwned()) {
-                            broadcastMessage("!canbuy! " + clientUsername + " " + currPosition);
+                            if (SingletonBoard.getPlayer(clientUsername).getMoney() > SingletonBoard.getProperty(currPosition).price) {
+                                broadcastMessage("!canbuy! " + clientUsername + " " + currPosition);
+                            }
                         }
                     }
                 } else if (msgArr[0].equals("!increment!")) {
@@ -94,7 +97,14 @@ public class ClientHandler implements Runnable {
                     SingletonBoard.nextTurn();
                 } else if (msgArr[0].equals("!willbuy!")) {
                     ((Property)SingletonBoard.getProperty(Integer.parseInt(msgArr[1]))).setOwner(SingletonBoard.getNum(msgArr[2]));
-                    broadcastMessage("!bought! " + msgArr[1] + " " + SingletonBoard.getNum(clientUsername));
+                    SingletonBoard.getPlayer(clientUsername).subtractMoney(SingletonBoard.getProperty(Integer.parseInt(msgArr[1])).price);
+                    broadcastMessage("!bought! " + msgArr[1] + " " + SingletonBoard.getNum(clientUsername) + " " + SingletonBoard.getProperty(Integer.parseInt(msgArr[1])).price + " " + SingletonBoard.getNum(clientUsername));
+                } else if (msgArr[0].equals("!start!")) {
+                    int i = 1;
+                    while (SingletonBoard.getPlayer(i) != null) {
+                        broadcastMessage("!setname! " + SingletonBoard.getPlayer(i).getUsername() + " " + i);
+                        i++;
+                    }
                 }
                 broadcastMessage(message);
             } catch (IOException e) {

@@ -3,13 +3,22 @@ public class Player {
     private int position;
     private String username;
     private static final int MAX_INDEX = 39;
+    private int money;
 
     public Player(String username) {
         this.username = username;
+        money = 1500;
     }
 
     public String getUsername() {
         return this.username;
+    }
+    public int getMoney() {
+        return this.money;
+    }
+
+    public void subtractMoney(int money) {
+        this.money -= money;
     }
 
     public void setPostion(int position) {
