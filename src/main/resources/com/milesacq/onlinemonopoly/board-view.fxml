@@ -101,5 +101,13 @@
       <Circle fx:id="pFour" fill="#ff3921" layoutX="1426.0" layoutY="871.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
       <Button fx:id="startGame" layoutX="1490.0" layoutY="713.0" mnemonicParsing="false" text="START" />
       <Button fx:id="endTurnButton" disable="true" layoutX="1494.0" layoutY="778.0" mnemonicParsing="false" text="END TURN" />
+      <Text fx:id="p1Name" layoutX="1480.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p1Money" layoutX="1480.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p2Name" layoutX="1480.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p2Money" layoutX="1480.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p3Name" layoutX="1480.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p3Money" layoutX="1480.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p4Name" layoutX="1480.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="p4Money" layoutX="1480.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

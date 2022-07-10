@@ -257,7 +257,7 @@ public class BoardViewController {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        setPlayer(SingletonBoard.getNum(username.getText()), board.getCoordinate(0).getX(), board.getCoordinate(0).getY());
+//                        setPlayer(SingletonBoard.getNum(username.getText()), board.getCoordinate(0).getX(), board.getCoordinate(0).getY());
                     }
                 }).start();
             }
